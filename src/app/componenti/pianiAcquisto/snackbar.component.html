@@ -1,0 +1,13 @@
+<div class="example-snack" *ngIf="giaInPossesso">
+        giá in possesso
+        <button  (click)="snackBarRef.dismissWithAction()" >Ho capito</button>
+</div>
+<div class="example-snack" *ngIf="acquistabile">
+        acquista
+        <button  (click)="snackBarRef.dismissWithAction()">Clicca qui</button>
+</div>
+<div class="example-snack" *ngIf="acquistabile2">acquista
+<span matSnackBarActions>   
+        <button  (click)="onPianoPro()">Vai all'acquisto</button> 
+</span>
+</div>

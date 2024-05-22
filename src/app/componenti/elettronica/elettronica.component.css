@@ -1,0 +1,17 @@
+.container {display: flex;align-items: center;justify-content: center;padding: 20px;margin: 5px;}
+.sidebar { width: 30%;}
+.example-card {
+  max-width: calc(50% - 20px);
+  margin: 10px;
+}
+.sidebar img {  width: 800px;position: absolute; top: 15px; right: 50%; height: auto;}
+.card-recensioni {flex-grow: 1;padding: 20px;flex-wrap: wrap;}
+@media only screen and (max-width: 768px) {.container {    flex-direction: column;   align-items: stretch;  }  .sidebar {    width: 100%;    margin-bottom: 20px;}.example-card { max-width: 100%; }}
+.StreamingContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; 
+}
+.StreamingContainer > *{margin: 5px;}

@@ -1,0 +1,16 @@
+<div class="container-body">
+  <div class="container">
+        <div class="logoImg" style=" text-align: center;">
+          <img class="ImgLogo" src="../../../assets/img/RevSite-background.png" alt="" height="52px" />
+        </div>
+      <div class="heading">Registrazione Utente </div>
+      <form class="form" #registerform="ngForm" (ngSubmit)="onSubmit(registerform)">
+        <input placeholder="Nome" id="nome" class="input" type="nome" name="nome" ngModel required />
+        <input placeholder="E-mail" id="email" class="input" type="email" name="email" ngModel required />
+        <input placeholder="Password" id="password" class="input" type="password" name="password" ngModel required/>
+        <button mat-button class="login-button" value="Sign In" type="submit" [disabled]="!registerform.valid">Registrati</button>
+      </form>
+      <button class="accedi-acc" (click)="atLogin()">Accedi al tuo Account</button><br>
+      <a style=" display: block ; cursor: pointer; color: #0099ff; text-decoration: underline; text-align: center;" (click)="atHome()">Torna alla home</a>
+  </div>
+</div>

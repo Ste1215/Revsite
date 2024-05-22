@@ -1,0 +1,81 @@
+<div class="container" *ngIf="!hasPianoPro">
+    <h1>Abbonamento al Piano Pro</h1>
+    <form (ngSubmit)="submitPaymentForm(paymentForm)" #paymentForm="ngForm">
+      <div class="form-group">
+        <div *ngIf="messaggio" class="notifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Il numero della carta non è valido.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <label for="cardNumber">Numero della carta di credito:</label>
+        <input type="text" id="cardNumber" name="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" [(ngModel)]="paymentData.cardNumber" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div *ngIf="MessaggioDataScadenza" class="notifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">La data di scadenza non è valida.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label for="expiryDate">Data di scadenza:</label>
+          <input type="text" id="expiryDate" name="expiryDate" class="form-control" placeholder="MM/YY" [(ngModel)]="paymentData.expiryDate" required>
+        </div>
+        <div class="form-group col-md-6">
+          <div *ngIf="MessaggioCVV" class="notifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Il CVV non è valido.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" class="form-control" placeholder="123" [(ngModel)]="paymentData.cvv" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardholderName">Nome del titolare della carta:</label>
+        <input type="text" id="cardholderName" name="cardholderName" class="form-control" placeholder="Nome Cognome" [(ngModel)]="paymentData.cardholderName" required>
+      </div>
+      <button type="submit" class="Btn" [disabled]="!paymentForm.valid">Conferma Pagamento
+        <svg viewBox="0 0 576 512" class="svgIcon"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+      </button>
+    </form>
+  </div>
+  <div class="contenitore" *ngIf="hasPianoPro">
+      <h2 class="title">Grazie per aver acquistato il Piano Pro!</h2>
+      <p class="paragrafo">Apprezziamo il tuo supporto continuo al nostro servizio.</p>
+      <h3 class="sottotitolo">Benefici del Piano Pro:</h3>
+      <ul class="bullet-list">
+        <li class="bullet-item">Accesso illimitato a tutte le funzionalità premium</li>
+        <li class="bullet-item">Supporto prioritario da parte del nostro team</li>
+        <li class="bullet-item">Offerte speciali e sconti esclusivi su prodotti e servizi aggiuntivi</li>
+      </ul>
+      <h3 class="sottotitolo">Hai domande o feedback?</h3>
+      <p class="paragrafo">Contattaci per qualsiasi domanda o suggerimento riguardo al tuo abbonamento al Piano Pro.</p>
+      <button class="btn-cancel" (click)="cancelPianoPro()">Annulla abbonamento</button>
+    </div>

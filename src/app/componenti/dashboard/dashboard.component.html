@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar class="header">
+  <div class="logo" (click)="onHome()">
+    <img src="../../../assets/img/RevSite-background.png" alt="Logo" width="72px" height="72px" />
+  </div>
+  <div class="dashboard-btn">
+    <button mat-button routerLink="/dashboard/categorie" [routerLinkActive]="'categorie'" (click)="scrollToElement()">
+      <mat-icon>category</mat-icon>Categorie
+    </button>
+    <button mat-button routerLink="/dashboard/recensioni" [routerLinkActive]="'categorie'">
+      <mat-icon>reviews</mat-icon>Recensioni
+    </button>
+    <button mat-button routerLink="/dashboard/piani" [routerLinkActive]="'categorie'">
+      Piani
+    </button>
+  </div>
+  <span class="example-spacer"></span>
+  <div class="profile-container" (click)="toggleMenu()">
+    <ng-container *ngIf="this.authService.user">
+      <button mat-button matTooltip="Account RevSite {{this.authService.user.email}}">
+        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" src="../../../assets/img/user.png" alt="Default" />
+        <div *ngIf="profileImageUrlGoogle">
+          <img [src]="profileImageUrlGoogle" alt="Immagine google">
+        </div>
+      </button>
+    </ng-container>
+    <div class="profil" [ngClass]="{'visible': isMenuVisible }" (click)="menuClick($event)">
+      <button mat-icon-button class="Close" (click)="closeMenu()">x</button>
+      <span *ngIf="authService.user">{{authService.user.email}}</span>
+      <div class="profile-imgAccount">
+        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" src="../../../assets/img/user.png" alt="Default"/>
+        <img *ngIf="profileImageUrlGoogle" [src]="profileImageUrlGoogle" alt="Immagine google">
+      </div>
+      <div class="h1-heading">
+        <h1 *ngIf="authService.user">Ciao {{this.authService.getNameFromEmail(this.authService.user.email)}}</h1>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="color: white;">{{panelOpenState ? 'Nascondi altri account' : 'Mostra altri account'}}</mat-panel-title>
+            <mat-icon>account_circle</mat-icon>
+          </mat-expansion-panel-header>
+          <div *ngIf="authService.isAuthenticated()">
+            <span>{{EmailGoogle}}</span>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div class="logOutButton">
+        <button mat-raised-button (click)="onLogOut()">
+          <mat-icon>logout</mat-icon>
+          <span>logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
+          

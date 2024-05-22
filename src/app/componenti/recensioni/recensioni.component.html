@@ -1,0 +1,36 @@
+<div class="container">
+<h1 style="text-align: center;">Crea la tua recensione!</h1>
+<button mat-raised-button style="margin-top: 15px;"  *ngIf="!mostraRecensione" (click)=" mostraRecensione= true; mostraBottone = false">inizia ora</button>
+<div class="newRecensione-componente" *ngIf="mostraRecensione">
+    <a  style="color: gray; text-decoration: underline; display: block; text-align: end;" (click)="pathSteamingCategoria()">Vuoi recensire La categoria Streaming?</a>
+    <h2 mat-dialog-title>Recensione su</h2>
+<mat-chip-listbox aria-label="Shop selection">
+      <mat-chip-option  (click)="selezionaNegozio('Mediaworld')">
+         <img matChipAvatar src="../../../assets/img/logo_mediaworld.png" alt=""/>
+         Mediaworld
+      </mat-chip-option>
+      <mat-chip-option (click)="selezionaNegozio('Euronics')">
+        <img matChipAvatar src="../../../assets/img/logo_euronics.png" width="40px" height="40px" alt=""/>
+        Euronics
+      </mat-chip-option>
+      <mat-chip-option (click)="selezionaNegozio('Unieuro')">
+        <img matChipAvatar src="../../../assets/img/uniero logo.png" alt=""/>
+        Unieuro
+      </mat-chip-option>
+      <!--metterne altri-->
+</mat-chip-listbox>
+  <mat-dialog-content>
+      <textarea [(ngModel)]="nuovaRecensione" placeholder="Inserisci la tua recensione"></textarea> 
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close  [disabled]="!nuovaRecensione" (click)="inviaRecensione()">invia recensione</button>
+  </mat-dialog-actions>
+  </div>
+  <div *ngIf="mostraMessaggio">
+    <p>Grazie!, hai recensito correttamente {{negozioCorrente}}</p>
+  </div>
+  <div *ngIf="mostraMessaggioValutazioni">
+    <p (click)="onValutazioni()" style="text-decoration: underline; color: gray;">Vai alle Valutazioni della categoria Elettronica</p>
+  </div>
+</div>
+

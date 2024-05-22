@@ -1,0 +1,6 @@
+.container-box {background: linear-gradient(rgb(96, 206, 166) 20%, rgb(173, 222, 116) 20%, rgb(173, 222, 116) 40%, rgb(249, 220, 93) 40%, rgb(249, 220, 93) 60%, rgb(246, 173, 114) 60%, rgb(246, 173, 114) 80%, rgb(246, 126, 114) 80%);border-radius: 16px;padding: 100px; }
+  .container-box > div {display: flex; justify-content: space-between; background-color: rgba(255, 255, 255, 0.7); }
+  .contain-recensioni,.contain-form {flex: 1; padding: 10px; }
+  .contain-recensioni {border-radius: 20px;text-align: center; }
+  .contain-form {background-color: white;border-radius: 10px;width: 200px;height: 500px;}
+   

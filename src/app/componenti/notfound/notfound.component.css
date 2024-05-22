@@ -1,0 +1,9 @@
+
+.container-body {   font-family: 'Roboto', sans-serif;   background-color: #f9f9f9;    margin: 0;    padding: 0;}
+.container {    text-align: center;}
+img {    max-width: 100%;    height: auto;}
+h1 {    font-size: 3em;    color: #333;}
+h2 {    font-size: 1.5em;    color: #666;}
+p {    font-size: 1em;    color: #999;}
+a {  text-decoration: none ;   color: #007bff;}
+a:hover {    text-decoration: underline;color: #00479e;}

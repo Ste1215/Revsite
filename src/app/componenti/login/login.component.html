@@ -1,0 +1,35 @@
+<div class="container-body">
+  <div class="container">
+    <div class="logoImg" style=" text-align: center;">
+      <img class="ImgLogo" src="../../../assets/img/RevSite-background.png" alt="" height="52px" />
+    </div>
+  <div class="heading">Login</div>
+    <div *ngIf="this.authService.credenzialiErrate" class="errore-container">
+      <div class="errore-message">
+        <mat-icon>error_outline</mat-icon>
+        <span>Credenziali non valide. Si prega di riprovare.</span>
+      </div>
+    </div>
+  <form class="form" #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+    <input placeholder="E-mail" id="email" class="input" type="email" name="email" ngModel required/>
+    <input placeholder="Password" id="password" class="input" type="password" name="password" ngModel required/>
+    <button mat-button class="login-button" value="Sign In" id="btn" type="submit" [disabled]="!loginform.valid">Accedi</button>
+    <span class="forgot-password"><button (click)="atLogin()"> oppure Registrati</button></span>
+  </form>
+  <div class="social-account-container">
+    <span class="title">O accedi con</span>
+    <div class="social-accounts">
+       <button class="social-button google" (click)="loginWithGoogle()"> 
+        <img src="../../../assets/img/icons-google.png" alt="google img" height="24px">
+      </button>
+       <button class="social-button github" > 
+        <img src="../../../assets/img/icons-github.png" alt="github img" height="24px">
+      </button>
+    </div>
+  </div>
+ </div>
+</div>
+  
+
+
+

@@ -1,0 +1,53 @@
+<div class="container">
+        <div class="sidebar">
+          <img src="/assets/img/SONY.png" alt="">
+        </div>
+      <div class="card-recensioni" *ngIf="isElettronicaPage">
+      <mat-card *ngFor="let negozio of negozi" class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{negozio.nome }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+            <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+            <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+            <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+            <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+            <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+            <span>|</span>{{negozio.numeroRecensioni}} recensioni
+            </p> 
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="onRecensioni()">Crea la tua Recensione</button>
+            <button mat-button (click)="onValutazioni()">Guarda le recensioni</button>
+          </mat-card-actions>
+        </mat-card> 
+        </div>
+</div>
+
+
+
+<div class="StreamingContainer" *ngIf=" identificatore === 'streaming'" >
+  <mat-card *ngFor="let azienda of aziende" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{azienda.nome }}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    <p>
+      <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+      <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+      <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+      <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+      <mat-icon [ngStyle]="{'color' : color}">star</mat-icon>
+      <span>|</span>{{azienda.numeroRecensioni}} recensioni</p> 
+</mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="onRecensioniStreaming()">Crea la tua Recensione</button>
+      <button mat-button (click)="onValutazioniStreaming()">Guarda le recensioni</button>
+    </mat-card-actions>
+  </mat-card>     
+</div>
+<div class="e-commerceContainer" *ngIf="identificatore === 'e-commerce'">
+
+</div>
