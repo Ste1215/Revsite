@@ -1,0 +1,23 @@
+<mat-tab-group>
+    <mat-tab class="card" *ngFor="let site of sites" [label]="site" >
+      <div class="card" *ngFor="let recensione of recensioniPerSite[site]">
+      <div class="header">
+        <div class="image">
+          <img *ngIf="authService.isAuthenticated()"  [src]="profileImageUrl" alt="Default"/>
+        </div>
+        <div>
+          <div class="stars">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+              <mat-icon *ngIf="i < recensione.rating" color="gold">star</mat-icon>
+            <mat-icon *ngIf="i >= recensione.rating">star_border</mat-icon>  
+            </ng-container>
+          </div>
+          <p class="name">{{authService.getNameFromEmail(authService.user.email)}}</p>
+        </div>
+      </div>
+      <p class="message">
+        {{recensione.testo }}
+      </p>  
+    </div>
+    </mat-tab>
+    </mat-tab-group>

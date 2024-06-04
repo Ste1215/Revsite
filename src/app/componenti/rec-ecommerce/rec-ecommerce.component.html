@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 style="text-align: center;">Crea la tua Recensione nella categoria Negozi-Online!</h1>
+    <button mat-raised-button style="margin-top: 15px;" *ngIf="!mostraRecensione" (click)=" mostraRecensione= true; mostraBottone = false">inizia ora</button>
+    <div class="newRecensione-componente" *ngIf="mostraRecensione">
+      <button class="btn" (click)="onCat()">Vai a Categorie</button>  
+      <h2 mat-dialog-title>Recensioni su {{categoria}}</h2>
+    <mat-chip-listbox aria-label="Shop selection">
+          <mat-chip-option [selected]="negozioCorrente === 'Amazon'" (click)="selezionaNegozio('Amazon')">
+            <img matChipAvatar src="../../../assets/img/Amazon-logo.png" alt="Amazon"/>
+            Amazon
+          </mat-chip-option>
+          <mat-chip-option   [selected]="negozioCorrente === 'eBay'" (click)="selezionaNegozio('eBay')">
+            <img matChipAvatar src="../../../assets/img/ebay-logo.png"  alt="eBay"/>
+            eBay
+          </mat-chip-option> 
+          <mat-chip-option  [selected]="negozioCorrente === 'Etsy'" (click)="selezionaNegozio('Etsy')">
+            <img matChipAvatar src="../../../assets/img/Etsy-logo.png"  alt="Etsy"/>
+            Etsy
+          </mat-chip-option>
+          <mat-chip-option  [selected]="negozioCorrente === 'Zalando'" (click)="selezionaNegozio('Zalando')">
+            <img matChipAvatar src="../../../assets/img/logo-zalando.png" alt=""/>
+            Zalando
+          </mat-chip-option>
+        </mat-chip-listbox>
+        <div class="rating-container">
+          <span class="star" *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">
+            <mat-icon [ngClass]="{'selected-star': i < rating}">star</mat-icon>
+          </span>
+        </div>
+      <mat-dialog-content>
+          <textarea [(ngModel)]="nuovaRecensione" placeholder="Inserisci la tua recensione"></textarea> 
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close [disabled]="!nuovaRecensione || !rating " (click)="inviaRecensione()" >Invia recensione</button>
+      </mat-dialog-actions>
+      </div>
+      <div *ngIf="mostraMessaggio">
+        <p>Grazie!, hai recensito correttamente {{negozioCorrente}}</p>
+      </div>
+      <div *ngIf="mostraMessaggioValutazioni">
+        <p (click)="OnValutazioniEcommerce()" style="text-decoration: underline;">Vai alle valutazioni</p>
+      </div>
+</div>
+    
+    

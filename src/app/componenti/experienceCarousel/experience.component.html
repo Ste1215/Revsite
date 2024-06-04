@@ -1,0 +1,39 @@
+<div class="Max-cont">
+<div class="experience-container">
+
+  <div class="text-container" [ngStyle]="{
+    'opacity': hidden ? 0 : 1,
+    'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'}">
+      <div class="star" *ngFor="let star of stars" [ngStyle]="{color: 'gold'}">
+        <mat-icon>stars</mat-icon>
+      </div>
+    <h1>{{ slides[CurrentSlide].text }}</h1>
+  </div>
+
+  <div class="carousel-container">
+    <div class="slides">
+      <div class="slide" [ngStyle]="{
+        'background-image': 'url(' + slides[CurrentSlide].url + ')',
+        'opacity': hidden ? 0 : 1,
+        'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'
+      }">
+      </div>
+      @if(indicatorsVisible) {
+        <div id="indicators">
+            @for(slide of slides; track $index;){
+                <div (click)="jumpToSlide($index)"
+                 class="indicator"
+                 [ngClass]="{active: $index == CurrentSlide}"></div>
+            }
+        </div>
+      } 
+  </div>
+</div>
+  <button (click)="next()" class="nextButton">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+  <button (click)="prev()" class="prevButton">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+</div>
+</div>

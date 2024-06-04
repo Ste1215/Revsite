@@ -15,6 +15,7 @@ import { ServiziService } from '../../servizi/servizi.service';
 import { CarouselComponent } from "../carousel/carousel.component";
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import { FooterComponent } from "../footer/footer.component";
 const enterTransition = transition(':enter',[
   style({
     opacity: 0,
@@ -36,8 +37,8 @@ const fadeOut =trigger('fadeOut',[exitTransition]);
     styleUrl: './categorie.component.css',
     animations: [fadeIn, fadeOut],
     imports: [
-      MatDividerModule,
-       MatButtonModule,
+        MatDividerModule,
+        MatButtonModule,
         MatTabsModule,
         FormsModule,
         RouterModule,
@@ -45,7 +46,8 @@ const fadeOut =trigger('fadeOut',[exitTransition]);
         MatToolbarModule,
         CommonModule,
         ReactiveFormsModule,
-        CarouselComponent
+        CarouselComponent,
+        FooterComponent
     ]
 })
 export class CategorieComponent implements OnInit  {
@@ -59,7 +61,7 @@ export class CategorieComponent implements OnInit  {
       url: 'assets/img/sliderImg3.png',
     },
     {
-      url: 'assets/img/sliderImg2.jpg',
+      url: 'assets/img/questionImg.jpg',
     },
   ];
   

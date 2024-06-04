@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment.development';
 export interface Recensione {
   testo: string;
   negozio: string;
+  rating: number;
 }
 @Injectable({
   providedIn: 'root'
@@ -53,18 +54,6 @@ export class AuthService{
     this.user = new User(nome || 'default',email,id,token,expirationDate,profileImage,profileImageUrl);
     this.isLoggedIn = true;
   }
-  getId(){
-    return this.user.id;
-  }
-  getNameFromEmail(email: string){
-    const parts =email.split('@');
-    const username = parts[0];
-    if (username.includes('.')) {
-        return username.split('.')[0];
-    } else {
-        return username;
-    }
-  }
   logout(){
     this.isLoggedIn= false
     this.user= null
@@ -83,6 +72,19 @@ updateProfileImage(imageUrl: string): void {
   pathRegister(){
     this.router.navigate(['/register'])
   }
+  getNameFromEmail(email: string){
+    const parts =email.split('@');
+    const username = parts[0];
+    if (username.includes('.')) {
+        return username.split('.')[0];
+    } else {
+        return username;
+    }
+  }
+  getId(){
+    return this.user.id;
+  }
+  //recensioni 
   private recensioniSubjects: { [negozio: string]: BehaviorSubject<Recensione[]> } = {};
   private recensioniSubject = new BehaviorSubject<Recensione[]>([]);
   recensioni$ = this.recensioniSubject.asObservable();

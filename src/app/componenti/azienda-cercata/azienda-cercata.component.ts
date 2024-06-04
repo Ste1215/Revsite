@@ -3,11 +3,11 @@ import { CompanyDataService } from '../../servizi/company-data.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { RecensioniSService } from '../../servizi/recensioni-s.service';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-azienda-cercata',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatIconModule],
   templateUrl: './azienda-cercata.component.html',
   styleUrl: './azienda-cercata.component.css'
 })

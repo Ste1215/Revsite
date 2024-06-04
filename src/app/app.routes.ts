@@ -17,6 +17,8 @@ import { ValutazioniStreamingComponent } from './componenti/valutazioni-streamin
 import { PianoProComponent } from './componenti/piano-pro/piano-pro.component';
 import { BusinessComponent } from './componenti/business/business.component';
 import { AziendaCercataComponent } from './componenti/azienda-cercata/azienda-cercata.component';
+import { RecEcommerceComponent } from './componenti/rec-ecommerce/rec-ecommerce.component';
+import { ValutazioniEcommerceComponent } from './componenti/valutazioni-ecommerce/valutazioni-ecommerce.component';
 
 
 export const routes: Routes = [
@@ -30,6 +32,8 @@ export const routes: Routes = [
         {path:'elettronica',component: ElettronicaComponent},
         {path:'streaming',component: StreamingComponent},
         {path:'E-commerce',component: ECommerceComponent},
+        {path:'recensioni/recensioniNegoziOnline',component: RecEcommerceComponent},
+        {path:'E-commerce/valutazioniNegoziOnline',component: ValutazioniEcommerceComponent},
         {path:'valutazioni',component: ValutazioniComponent},
         {path:'recensioni/recensioneStreaming',component: RecensioniStreamingComponent},
         {path:'streaming/ValutazioniStreaming',component: ValutazioniStreamingComponent},

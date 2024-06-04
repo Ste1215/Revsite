@@ -1,5 +1,5 @@
-<div style="display: flex;flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;">
-    <div class="plan animated fadeInUp" *ngFor="let piano of piani; let i= index" >
+<div class="container">
+    <div class="plan animated fadeInUp" *ngFor="let piano of piani; let i = index">
         <div class="inner">
             <span class="pricing">
                 <span>
@@ -9,45 +9,42 @@
             <p class="title">{{piano.tipo}}</p>
             <p class="info">{{piano.descrizione}}</p>
             <ul class="features">
-                    <li>
-                        <span class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path fill="currentColor"
-                                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
-                            </svg>
-                        </span>
-                        <span><strong>{{piano.caratteristiche}}</strong></span>
-                    </li>
-                    <li>
-                        <span class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path fill="currentColor"
-                                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
-                            </svg>
-                        </span>
-                        <span><strong>{{piano.caratteristiche}} </strong></span>
-
-                    </li>
-                    <li>
-                        <span class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path fill="currentColor"
-                                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
-                            </svg>
-                        </span>
-                        <span>{{piano.caratteristiche}}</span>
-                    </li>
-                </ul>
+                <li>
+                    <span class="icon">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path fill="currentColor"
+                                d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                        </svg>
+                    </span>
+                    <span><strong>{{piano.caratteristiche}}</strong></span>
+                </li>
+                <li>
+                    <span class="icon">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path fill="currentColor"
+                                d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                        </svg>
+                    </span>
+                    <span><strong>{{piano.caratteristiche2}}</strong></span>
+                </li>
+                <li>
+                    <span class="icon">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path fill="currentColor"
+                                d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                        </svg>
+                    </span>
+                    <span><strong>{{piano.caratteristiche3}}</strong></span>
+                </li>
+            </ul>
             <div class="action">
-                <a class="button" 
-                (click)="openSnackBar(i)" 
-                aria-label="piani-bar">
-                {{piano.acquistato}}
+                <a class="button" (click)="openSnackBar(i)" aria-label="piani-bar">
+                    {{piano.acquistato}}
                 </a>
             </div>
+        </div>
     </div>
 </div>
-

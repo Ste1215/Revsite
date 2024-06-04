@@ -1,4 +1,4 @@
-<div style="background-color: #262626;">
+<div style="background-color: #e5e5dd;">
   <div>
   <mat-toolbar>
     <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -17,18 +17,9 @@
           <span>Sign in</span>
         </button>
         <button class="signInButton" (click)="inRegister()">
-          <svg
-            height="24"
-            width="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg height="24"    width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none"></path>
-            <path
-              d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-              fill="currentColor"
-            ></path>
-          </svg>
+            <path d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"></path></svg>
           <span>Sign Up</span>
         </button>
   </div>
@@ -54,7 +45,7 @@
           </button>
         </mat-list-item>
         <mat-list-item>
-          <button class="btnRegistrati" *ngIf="!this.authService.isAuthenticated()" (click)="inRegister">
+          <button class="btnRegistrati" *ngIf="!this.authService.isAuthenticated()" (click)="inRegister()">
             Registrati adesso!
           </button>
         </mat-list-item>
@@ -62,48 +53,31 @@
     </mat-drawer>
     <mat-drawer-content>
       <div class="intro-section" style="text-align: center; min-height: 800px;">
-      <router-outlet></router-outlet>
       <h1>Leggi recensioni.</h1>
       <br>
       <h1>Scrivi recensioni.</h1>
       </div>
       <div class="innovative-section">
-        <h2 style="color: white; top: 30px;">Esplora le nostre recensioni</h2>
-        <div class="image-grid">
-          <div class="image-item hidden slide-in-left">
-            <img src="../../../assets/img/domande_interattive.jpg" alt="Immagine1">
-            <p>Immagine 1</p>
-          </div>
-          <div class="image-item hidden slide-in-left">
-            <img src="../../../assets/img/azienda.jpg" alt="Immagine2">
-            <p>stile dinamico,inclusivo e porta verso un mondo di esperienze condivise.
-            </p>
-          </div>
-          <div class="image-item hidden slide-in-left">
-            <img src="../../../assets/img/domande_interattive.jpg" alt="Immagine3">
-            <p>Immagine 3</p>
-          </div>
+        <h2>Con RevSite, le recensioni dei clienti stanno trasformando le aziende in leader del settore.</h2>
+        <div class="wrapper">
+          <div class="item item1"><img src="../../../assets/img/amazonInfinite.png" alt=""width="80px" height="60px"></div>
+          <div class="item item2"><img src="../../../assets/img/logo_mediaworld.png" alt=""width="80px" height="70px"></div>
+          <div class="item item3"><img src="../../../assets/img/youtubeInfinite.png" alt=""width="80px" height="60px"></div>
+          <div class="item item4"><img src="../../../assets/img/twitchInfinite.png" alt=""width="80px" height="60px"></div>
+          <div class="item item5"><img src="../../../assets/img/netflix-logo.png" alt=""width="80px" height="60px"></div>
+          <div class="item item6"><img src="../../../assets/img/ebay-logo.png" alt=""  width="80px" height="60px"></div>
+          <div class="item item7"><img src="../../../assets/img/Etsy-logo.png" alt=""  width="80px" height="60px"></div>
+          <div class="item item8"><img src="../../../assets/img/disneyPlus.png" alt=""  width="80px" height="60px"></div>
         </div>
       </div>
-      <div class="Chisiamo-section">
-        <h2 class="tit hide slide-in-left" id="destinazion">Chi siamo</h2>
-        <div class="image-grid2">
-          <div class="img hidden slide-in-left">
-            <img src="../../../assets/img/reviewSmartPhone.png" alt="Immagine">
-          </div>
-        </div>
-        <div class="details hidden slide-in-left">
-          <p>
-            Benvenuti su RevSite, il luogo dove l'autenticità incontra l'esperienza. Siamo una piattaforma dedicata alla recensione di aziende di prim'ordine in ogni categoria.
-            Dal settore tecnologico alla ristorazione, passando per il mondo dell'intrattenimento e molto altro ancora, ci impegniamo a fornire recensioni oneste e dettagliate per aiutarti a prendere decisioni informate.
-            Il nostro team di esperti esamina attentamente ogni azienda prima di presentarla sulla nostra piattaforma. Siamo qui per garantire che tu abbia accesso alle migliori recensioni e valutazioni, 
-            sia che tu stia cercando un nuovo ristorante da provare, un servizio di consegna a domicilio affidabile o un'azienda leader nel settore tecnologico.
-            Indipendentemente dalla categoria che ti interessa, puoi contare su di noi per fornirti informazioni accurate e aggiornate. 
-            La tua soddisfazione e fiducia sono la nostra priorità assoluta.
-            Unisciti a noi nel viaggio verso la scoperta delle migliori aziende e servizi, e scopri il potere di una recensione autentica su RevSite.
-          </p>
-        </div>
+      <div style="background: #e5e5dd;"> 
+        <div >
+          <h1 style=" text-align: center; color: gray;font-size: 1.5rem;font-weight: bold; ">Esperienze personali</h1>
+        <h1 style="text-align: center; color: rgb(0, 0, 0);font-size: 3rem;font-weight: bolder;">Ogni recensione racconta una storia</h1>
       </div>
+        <app-experience [autoPlay]="false" [slides]="slides"></app-experience>
+      </div>
+
       <footer class="footer">
           <app-footer class="ok hide slide-in"></app-footer>
       </footer> 

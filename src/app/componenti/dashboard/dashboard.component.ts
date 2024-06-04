@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit,Renderer2,ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit,Renderer2,ViewChild } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,12 +46,38 @@ import {MatExpansionModule} from '@angular/material/expansion';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
+  defaultProfileImageUrl: string = '../../../assets/img/user.png';
+  profileImageUrl: string = this.defaultProfileImageUrl;
+showResetButton: boolean=false;
+onChangeProfileImageClick() {
+    const fileInput = document.querySelector('.file-input') as HTMLElement;
+    fileInput.click();
+}
+onFileSelected(event: any) {
+  const file: File = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.profileImageUrl = e.target.result;
+      this.showResetButton=true;
+      localStorage.setItem('profileImageUrl', this.profileImageUrl);
+      this.cdr.detectChanges();
+    };
+    reader.readAsDataURL(file);
+  }
+}
+resetProfileImage() {
+  this.profileImageUrl = this.defaultProfileImageUrl;
+  this.showResetButton = false;
+  localStorage.removeItem('profileImageUrl');
+}
   @ViewChild('profil') profilRef: ElementRef;
 customImageSelected: boolean = false;
 isMenuVisible: boolean = false;
 profileImageUrlGoogle: string;
 EmailGoogle:string;
 panelOpenState = false;
+  isHamburgerMenuVisible: boolean =false;
 GetEmailGoogle(){
    const userDataGoogle=localStorage.getItem('user');
   if(userDataGoogle){
@@ -59,7 +85,9 @@ GetEmailGoogle(){
        this.EmailGoogle = user.email;
   }
 }
-  constructor(private renderer: Renderer2,private elementRef: ElementRef,public authService: AuthService, private router: Router,private servizi: ServiziService){ }
+  constructor(private cdr: ChangeDetectorRef,private renderer: Renderer2,private elementRef: ElementRef,public authService: AuthService, private router: Router,private servizi: ServiziService){ 
+    this.profileImageUrl = localStorage.getItem('profileImageUrl') || '../../../assets/img/user.png';
+  }
   scrollToElement(): void {
     this.servizi.scrollToElement('destinazione');
   }
@@ -74,10 +102,16 @@ ngOnInit(): void {
     this.router.navigate(['/dashboard/categorie']);   
   }
   else if(this.authService.isUserSignedInWithGoogle()){
-    this.router.navigate(['/dashboard/categorie']);
+    window.location.reload();
   }else{
   this.router.navigate(['/']) 
   }
+}
+
+
+
+toggleHamburgerMenu() {
+  this.isHamburgerMenuVisible = !this.isHamburgerMenuVisible;
 }
 toggleMenu() {
   this.isMenuVisible = !this.isMenuVisible;

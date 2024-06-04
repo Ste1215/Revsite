@@ -9,12 +9,11 @@
       </div>
     </div>
   </section>
-  
 <div class="search">
     <h2 class="search-title">Scopri le recensioni della tua azienda</h2>
     <div class="input-container">
-    <input type="text" [(ngModel)]="nameAgency" class="search-input" placeholder="Inserisci nome dell'azienda">
-    <button class="search-button" (click)="search()">
+    <input type="text" [(ngModel)]="nameAgency" class="search-input" placeholder="Inserisci nome dell'azienda"  (keyup.enter)="search()">
+    <button class="search-button" (click)="search()" >
         <mat-icon>search</mat-icon>
     </button>
   </div>  

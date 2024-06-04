@@ -13,11 +13,21 @@ import { CommonModule, IMAGE_CONFIG } from "@angular/common";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AnimationBuilder, AnimationFactory, AnimationMetadata, animate, style } from '@angular/animations';
 import { ServiziService } from '../../servizi/servizi.service';
+import { Experience } from "../experienceCarousel/Experience.component";
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
+    providers: [
+        {
+            provide: IMAGE_CONFIG,
+            useValue: {
+                disableImageSizeWarning: true,
+                disableImageLazyLoadWarning: true
+            }
+        },
+    ],
     imports: [
         MatSlideToggleModule,
         RouterModule,
@@ -29,23 +39,32 @@ import { ServiziService } from '../../servizi/servizi.service';
         MatGridListModule,
         FooterComponent,
         CommonModule,
-        MatButtonModule, 
+        MatButtonModule,
         MatIconModule,
-    ],
-    providers: [
-      {
-        provide: IMAGE_CONFIG,
-        useValue: {
-          disableImageSizeWarning: true, 
-          disableImageLazyLoadWarning: true
-        }
-      },
-    ],
+        Experience
+    ]
 })
 export class HomeComponent implements OnInit {
   private animatedElements: HTMLElement[] = [];
   constructor(private servizi: ServiziService,private animationBuilder: AnimationBuilder, private elementRef: ElementRef,public authService: AuthService, private router: Router) {}
   ngOnInit(): void {}
+  slides: any[] =[
+    {
+      url: 'assets/img/azh.jpg', text:'Il miglior posto per trovare gadget tecnologici di ultima generazione.La qualità dei prodotti è eccellente e il servizio clienti è estremamente disponibile e gentile.'
+    },
+    {
+      url: 'assets/img/laptop.jpg',text:'Servizio impeccabile e prodotti di alta qualità! Ho acquistato un nuovo laptop e sono estremamente soddisfatta. Assolutamente consigliato!'
+    },
+    {
+      url: 'assets/img/cons-pacc.jpg',text:'Sono davvero contento del mio acquisto! La consegna è stata rapida e senza problemi.'
+    },
+  ];
+
+
+
+
+
+
   @HostListener('window:scroll', ['$event'])
   checkIfElementIsVisible() {
     const hiddenElements = this.elementRef.nativeElement.querySelectorAll('.hidden, .hide');

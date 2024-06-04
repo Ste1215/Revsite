@@ -1,1 +1,149 @@
-.intro-section{background-color:#f8f9fa;padding:50px 0}.container{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}.intro-content{flex:1}.intro-title{font-size:36px;font-weight:bold;color:#333}.intro-description{font-size:18px;color:#666}.illustration-container{flex:1;display:flex;justify-content:flex-end}.illustration{width:300px;height:300px}.search{background-color:#fff;padding:50px 0;text-align:center}.search-title{font-size:24px;font-weight:bold;color:#333;margin-bottom:20px}.input-container{position:relative;width:260px;height:50px;margin:auto;overflow:hidden;border-radius:30px;cursor:pointer;box-shadow:2px 2px 10px rgba(0,0,0,0.075)}.input-container input{background-color:#ffffff;border:none;outline:none}.input-container input:focus{outline:none;background-color:#ffffff}.search-input{width:calc(100% - 40px);height:100%;border:none;border-radius:30px;padding-left:15px;padding-right:40px;font-size:13.4px}.search-button{position:absolute;right:0;top:0;height:100%;width:40px;background:transparent;border:none;cursor:pointer}.error{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;width:320px;padding:12px;display:flex;flex-direction:row;align-items:center;justify-content:start;background:#EF665B;border-radius:8px;box-shadow:0px 0px 5px -3px #111}.error__icon{width:20px;height:20px;transform:translateY(-2px);margin-right:8px}.error__icon path{fill:#fff}.error__title{font-weight:500;font-size:14px;color:#fff}
+.intro-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .intro-content {
+    flex: 1;
+  }
+  
+  .intro-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .intro-description {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .illustration-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .illustration {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+  }
+  
+  .search {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .search-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 30px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+  }
+  
+  .input-container input {
+    width: calc(100% - 40px);
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 40px;
+    font-size: 13.4px;
+  }
+  .input-container input:focus{
+    outline:none;
+    background-color:#ffffff
+}
+  .search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .error {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    max-width: 320px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #ef665b;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+  }
+  
+  .error__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+  
+  .error__icon path {
+    fill: #fff;
+  }
+  
+  .error__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .intro-content,
+    .illustration-container {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+  @media  (max-width: 425px) {
+    .container {padding: 0 20px;}
+    .intro-title {font-size: 28px; }
+    .search-title {font-size: 20px;}
+    .input-container {max-width: 100%;}
+    .illustration {width: 100%; }
+  }
+
+
+@media  (max-width: 425px) {
+    .container { padding: 0 20px; }
+    .intro-title {font-size: 28px;}  
+    .search-title {font-size: 20px; }
+    .input-container {max-width: 100%;}
+    .illustration {width: 100%;}
+  }
+  

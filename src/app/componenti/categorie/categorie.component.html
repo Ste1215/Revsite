@@ -5,36 +5,38 @@
     </div>
     <div class="image"></div>
 </div>
+
+<div class="Cont-categorie">
+    <h1  @fadeIn @fadeOut>Tutte le categorie</h1>
+    <div class="categorie" @fadeIn  @fadeOut>
+           <a class="btn-categorie" routerLink="/dashboard/elettronica" mat-raised-button >
+           <mat-icon>computer</mat-icon>
+          <span>Elettronica</span> 
+       </a>
+       <a class="btn-categorie" routerLink="/dashboard/streaming" mat-raised-button >
+           <mat-icon>cast_connected</mat-icon>
+          <span>Streaming</span>
+       </a>
+       <a class="btn-categorie" routerLink="/dashboard/E-commerce" mat-raised-button >
+           <mat-icon>business_center</mat-icon>
+           <span>E-commerce</span>
+       </a>
+   </div>
+</div>
 <router-outlet></router-outlet>
 <div style="
     margin: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    " @fadeIn @fadeOut>
+    "@fadeIn @fadeOut>
   <app-carousel [autoPlay]="true" [slides]="slides"></app-carousel>
 </div>
-
-<h1 id="destinazione" @fadeIn @fadeOut>Tutte le categorie</h1>
-
- <div class="categorie" @fadeIn  @fadeOut>
-        <a class="btn-categorie" routerLink="/dashboard/elettronica" mat-raised-button >
-        <mat-icon>computer</mat-icon>
-       <span>Elettronica</span> 
-    </a>
-    <a class="btn-categorie" routerLink="/dashboard/streaming" mat-raised-button >
-        <mat-icon>cast_connected</mat-icon>
-       <span>Streaming</span>
-    </a>
-    <a class="btn-categorie" routerLink="/dashboard/E-commerce" mat-raised-button >
-        <mat-icon>business_center</mat-icon>
-        <span>E-commerce</span>
-    </a>
+<div class="business">
+    <h3>Hai un'azienda?</h3>
+    <button mat-button routerLink="/dashboard/categorie/business">Inizia ora</button>
 </div>
-    <div class="business">
-        <h3>Hai un'azienda?</h3>
-        <button mat-button routerLink="/dashboard/categorie/business">Inizia ora</button>
-    </div>
+<app-footer></app-footer>
 
 
 

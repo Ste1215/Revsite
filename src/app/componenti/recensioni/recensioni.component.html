@@ -1,36 +1,45 @@
 <div class="container">
-<h1 style="text-align: center;">Crea la tua recensione!</h1>
-<button mat-raised-button style="margin-top: 15px;"  *ngIf="!mostraRecensione" (click)=" mostraRecensione= true; mostraBottone = false">inizia ora</button>
-<div class="newRecensione-componente" *ngIf="mostraRecensione">
-    <a  style="color: gray; text-decoration: underline; display: block; text-align: end;" (click)="pathSteamingCategoria()">Vuoi recensire La categoria Streaming?</a>
+  <h1 style="text-align: center;">Crea la tua recensione nella categoria Elettronica!</h1>
+  <button mat-raised-button style="margin-top: 15px;" *ngIf="!mostraRecensione" (click)="mostraRecensione= true; mostraBottone = false">Inizia ora</button>
+  <div class="newRecensione-componente" *ngIf="mostraRecensione">
+    <button class="btn" (click)="pathSteamingCategoria()">Vai a Streaming</button>
     <h2 mat-dialog-title>Recensione su</h2>
-<mat-chip-listbox aria-label="Shop selection">
-      <mat-chip-option  (click)="selezionaNegozio('Mediaworld')">
-         <img matChipAvatar src="../../../assets/img/logo_mediaworld.png" alt=""/>
-         Mediaworld
+    <mat-chip-listbox aria-label="Shop selection">
+      <mat-chip-option [selected]="negozioCorrente === 'Mediaworld'" (click)="selezionaNegozio('Mediaworld')">
+        <img matChipAvatar src="../../../assets/img/logo_mediaworld.png" alt=""/>
+        Mediaworld
       </mat-chip-option>
-      <mat-chip-option (click)="selezionaNegozio('Euronics')">
+      <mat-chip-option [selected]="negozioCorrente === 'Euronics'" (click)="selezionaNegozio('Euronics')">
         <img matChipAvatar src="../../../assets/img/logo_euronics.png" width="40px" height="40px" alt=""/>
         Euronics
       </mat-chip-option>
-      <mat-chip-option (click)="selezionaNegozio('Unieuro')">
-        <img matChipAvatar src="../../../assets/img/uniero logo.png" alt=""/>
+      <mat-chip-option [selected]="negozioCorrente === 'Unieuro'" (click)="selezionaNegozio('Unieuro')">
+        <img matChipAvatar src="../../../assets/img/uniero logo.png"/>
         Unieuro
       </mat-chip-option>
-      <!--metterne altri-->
-</mat-chip-listbox>
-  <mat-dialog-content>
-      <textarea [(ngModel)]="nuovaRecensione" placeholder="Inserisci la tua recensione"></textarea> 
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button mat-dialog-close  [disabled]="!nuovaRecensione" (click)="inviaRecensione()">invia recensione</button>
-  </mat-dialog-actions>
+      <mat-chip-option [selected]="negozioCorrente === 'Apple'" (click)="selezionaNegozio('Apple')">
+        <img matChipAvatar src="../../../assets/img/1724px-Apple_logo_grey.svg-removebg-preview.png" style="width:25px; height:25px;"/>
+        Apple
+      </mat-chip-option>
+    </mat-chip-listbox>
+    <div class="rating-container">
+      <span class="star" *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">
+        <mat-icon [ngClass]="{'selected-star': i < rating}">star</mat-icon>
+      </span>
+    </div>
+    <mat-dialog-content>
+      <textarea [(ngModel)]="nuovaRecensione" placeholder="Inserisci la tua recensione"></textarea>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close [disabled]="!nuovaRecensione || !rating" (click)="inviaRecensione()">Invia recensione</button>
+    </mat-dialog-actions>
   </div>
   <div *ngIf="mostraMessaggio">
-    <p>Grazie!, hai recensito correttamente {{negozioCorrente}}</p>
+    <p>Grazie! Hai recensito correttamente {{negozioCorrente}}</p>
   </div>
   <div *ngIf="mostraMessaggioValutazioni">
-    <p (click)="onValutazioni()" style="text-decoration: underline; color: gray;">Vai alle Valutazioni della categoria Elettronica</p>
+    <p (click)="onValutazioni()" style="text-decoration: underline;">Vai alle Valutazioni della categoria Elettronica</p>
   </div>
 </div>
+
 

@@ -1,6 +1,132 @@
-.container-box {background: linear-gradient(rgb(96, 206, 166) 20%, rgb(173, 222, 116) 20%, rgb(173, 222, 116) 40%, rgb(249, 220, 93) 40%, rgb(249, 220, 93) 60%, rgb(246, 173, 114) 60%, rgb(246, 173, 114) 80%, rgb(246, 126, 114) 80%);border-radius: 16px;padding: 100px; }
-  .container-box > div {display: flex; justify-content: space-between; background-color: rgba(255, 255, 255, 0.7); }
-  .contain-recensioni,.contain-form {flex: 1; padding: 10px; }
-  .contain-recensioni {border-radius: 20px;text-align: center; }
-  .contain-form {background-color: white;border-radius: 10px;width: 200px;height: 500px;}
-   
+.container-box {
+  background: linear-gradient(
+    rgb(96, 206, 166) 20%,
+    rgb(173, 222, 116) 20%,
+    rgb(173, 222, 116) 40%,
+    rgb(249, 220, 93) 40%,
+    rgb(249, 220, 93) 60%,
+    rgb(246, 173, 114) 60%,
+    rgb(246, 173, 114) 80%,
+    rgb(246, 126, 114) 80%
+  );
+  border-radius: 16px;
+  padding: 40px;
+  margin: 30px;
+}
+
+.container-box > div {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contain-recensioni,
+.contain-form {
+  flex: 1;
+  padding: 10px;
+}
+
+.contain-recensioni {
+  border-radius: 20px;
+  text-align: center;
+}
+
+.contain-recensioni h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contain-recensioni p,
+.contain-recensioni span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.contain-form {
+  background-color: white;
+  border-radius: 10px;
+  width: 200px;
+  height: 500px;
+}
+
+.stars {
+  display: flex;
+  gap: 0.125rem;
+  color: rgb(238, 203, 8);
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.contain-form span {
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container-box {
+    padding: 50px;
+  }
+
+  .contain-recensioni h1 {
+    font-size: 2.5rem;
+  }
+
+  .contain-recensioni p,
+  .contain-recensioni span {
+    font-size: 1.25rem;
+  }
+
+  .contain-form {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container-box {
+    padding: 20px;
+  }
+
+  .container-box > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contain-recensioni {
+    margin-bottom: 20px;
+  }
+
+  .contain-recensioni h1 {
+    font-size: 2rem;
+  }
+
+  .contain-recensioni p,
+  .contain-recensioni span {
+    font-size: 1rem;
+  }
+
+  .contain-form {
+    width: 100%;
+    height: auto;
+  }
+
+  .contain-form span {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+
+  .star {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}

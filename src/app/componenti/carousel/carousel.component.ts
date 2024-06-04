@@ -33,7 +33,6 @@ export class CarouselComponent {
        this.hidden=false;
     },this.animationSpeed);
   }
-
   constructor(){
      if(this.autoPlay){
        setInterval(() =>{

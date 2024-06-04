@@ -25,26 +25,80 @@
   letter-spacing: 2px; 
   margin-bottom: 20px; 
 }
+.Cont-categorie h1{
+  font-size: 2.5em; 
+  font-weight: bold; 
+  text-align: center; 
+  background: linear-gradient(90deg, #0073e6, #00c6ff);
+  background-clip: text; 
+  color: transparent; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin-bottom: 1em; 
+  transition: all 0.3s ease-in-out;
+  position: relative; 
+  cursor: pointer;
+}
+.Cont-categorie h1:hover{
+  letter-spacing: 4px; 
+  color: #00c6ff;
+}
+.Cont-categorie h1::after {
+  content: ""; 
+  position: absolute; 
+  left: 50%; 
+  bottom: -10px; 
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px; 
+  background-color: #00c6ff; 
+  transition: width 0.3s ease-in-out; 
+}
 .image {  flex: 1;  border-radius: 20px;  background-color: #2476adc1;   background-image: url('../../../assets/img/landingImage.png');   background-size: cover;  background-position: center;}
 h1 {  font-size: 1.5em;  color: #333;  text-align: center;  margin-bottom: 15px;}
-.categorie {  display: flex;  justify-content: space-around;  align-items: center;  flex-wrap: wrap;  margin-top: 20px;  border-radius: 15px;}
+
+.Cont-categorie {
+  padding: 3em 1em;
+  background-color: #f3f3f3;
+  text-align: center;
+}
+
+.categorie {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  border-radius: 15px;
+  gap: 10px; 
+  
+}
 .btn-categorie {
-  background-color: #2980b9;
+  background-color: #1876e9c1; 
   color: white;
   text-decoration: none;
   font-size: 1.2em;
-  padding: 15px 30px;
+  padding: 20px 30px; 
   border: none;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s ease;
-  flex: 1;
+  flex: 1 0 200px;
+  max-width: 300px; 
   margin: 10px; 
-  border-radius: 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.btn-categorie mat-icon {margin-right: 10px;}
-.btn-categorie:hover {background-color: #2574a9; }
-@media (max-width: 768px) {.container-img h1 { font-size: 1.8em; }.btn-categorie {flex-basis: 100%; }}
+.btn-categorie mat-icon {
+  margin-right: 10px;
+}
+@media (max-width: 768px) {  .categorie {
+  flex-direction: column; 
+  align-items: stretch;
+}
+  .container-img h1 { font-size: 1.8em; }.btn-categorie {flex-basis: 100%; }}
 .container {margin: 0 auto;width: 500px;margin-top: 50px;}
 .searchBar{display:flex;align-items:center;justify-content:center}
 .searchBarClear{margin-left:10px;cursor:pointer}
@@ -70,4 +124,47 @@ h1 {  font-size: 1.5em;  color: #333;  text-align: center;  margin-bottom: 15px;
               inset 0 0 0 16px #118ab2;
   background: #073b4c;
   color: #fff;
+}
+@media only screen and (max-width: 426px) {
+  .container-img {
+    flex-direction: column;
+    height: auto;
+  }
+  .image {
+    border-radius: 0;
+    width: 100%;
+    height: 200px; 
+  }
+  .content {
+    padding: 10px;
+  }
+  .content h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .categorie {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .btn-categorie {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .business {
+    padding: 10px;
+  }
+  .business h3 {
+    font-size: 1.2rem;
+  }
+  .business button {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 430px) and (max-height: 932px) {
+  .image {
+    background-size: contain; 
+    height: 300px;
+  }
 }

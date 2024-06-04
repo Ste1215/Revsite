@@ -1,24 +1,60 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar class="header">
-  <div class="logo" (click)="onHome()">
-    <img src="../../../assets/img/RevSite-background.png" alt="Logo" width="72px" height="72px" />
+  <div class="logo" style="cursor: pointer;" (click)="onCategorie()">
+    <img src="../../../assets/img/RevSite-background.png" alt="Logo"  width="72px" height="72px" />
   </div>
-  <div class="dashboard-btn">
-    <button mat-button routerLink="/dashboard/categorie" [routerLinkActive]="'categorie'" (click)="scrollToElement()">
-      <mat-icon>category</mat-icon>Categorie
+  <div class="menu-container">
+    <div class="dashboard-btn">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>category</mat-icon>
+        Categorie
+      </button>
+      <button mat-button routerLink="/dashboard/recensioni" routerLinkActive="'categorie'">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="rate_review"></mat-icon>
+        Recensisci
+      </button>
+      <button mat-button routerLink="/dashboard/piani" routerLinkActive="'categorie'">
+        Piani
+      </button>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/dashboard/elettronica" routerLinkActive="'categorie'">
+        <mat-icon aria-hidden="false" fontIcon="laptop"></mat-icon>
+        Elettronica</button>
+      <button mat-menu-item routerLink="/dashboard/streaming" routerLinkActive="'categorie'">
+        <mat-icon aria-hidden="false" fontIcon="live_tv"></mat-icon>
+        Streaming
+      </button> 
+      <button mat-menu-item routerLink="/dashboard/E-commerce" routerLinkActive="'categorie'">
+        <mat-icon aria-hidden="false" fontIcon="storefront"></mat-icon>
+        E-commerce
+      </button>
+    </mat-menu>
+  </div>
+  
+  <button class="hamburger-menu" mat-icon-button (click)="toggleHamburgerMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="hamburger-dropdown" *ngIf="isHamburgerMenuVisible">
+    <button mat-menu-item routerLink="/dashboard/elettronica" routerLinkActive="'categorie'">Elettronica</button>
+    <button mat-menu-item routerLink="/dashboard/streaming" routerLinkActive="'categorie'">Streaming</button>
+    <button mat-menu-item routerLink="/dashboard/E-commerce" routerLinkActive="'categorie'">E-commerce</button>
+    <button mat-menu-item routerLink="/dashboard/recensioni" routerLinkActive="'categorie'">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17l-.59.59-.58.58V4h16v12zm-9.5-2H18v-2h-5.5zm3.86-5.87c.2-.2.2-.51 0-.71l-1.77-1.77c-.2-.2-.51-.2-.71 0L6 11.53V14h2.47l5.89-5.87z"/>
+      </svg>Recensioni
     </button>
-    <button mat-button routerLink="/dashboard/recensioni" [routerLinkActive]="'categorie'">
-      <mat-icon>reviews</mat-icon>Recensioni
-    </button>
-    <button mat-button routerLink="/dashboard/piani" [routerLinkActive]="'categorie'">
+    <button mat-menu-item routerLink="/dashboard/piani" routerLinkActive="'categorie'">
       Piani
     </button>
   </div>
   <span class="example-spacer"></span>
+  <!--da qua impostazioni profilo-->
   <div class="profile-container" (click)="toggleMenu()">
-    <ng-container *ngIf="this.authService.user">
+    <ng-container style="border-radius: 50%;" *ngIf="this.authService.user">
       <button mat-button matTooltip="Account RevSite {{this.authService.user.email}}">
-        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" src="../../../assets/img/user.png" alt="Default" />
+        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" [src]="profileImageUrl" />
         <div *ngIf="profileImageUrlGoogle">
           <img [src]="profileImageUrlGoogle" alt="Immagine google">
         </div>
@@ -28,7 +64,7 @@
       <button mat-icon-button class="Close" (click)="closeMenu()">x</button>
       <span *ngIf="authService.user">{{authService.user.email}}</span>
       <div class="profile-imgAccount">
-        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" src="../../../assets/img/user.png" alt="Default"/>
+        <img *ngIf="authService.isAuthenticated() && !profileImageUrlGoogle" [src]="profileImageUrl"/>
         <img *ngIf="profileImageUrlGoogle" [src]="profileImageUrlGoogle" alt="Immagine google">
       </div>
       <div class="h1-heading">
@@ -45,6 +81,11 @@
           </div>
         </mat-expansion-panel>
       </mat-accordion>
+      <div class="changefotoProfilo">
+        <button class="change-profile-button" (click)="onChangeProfileImageClick()">Cambia Immagine profilo</button>
+        <input style="display: none;" type="file" #fileInput class="file-input" (change)="onFileSelected($event)" accept="image/*">
+        <button *ngIf="showResetButton" class="reset-profile-button" (click)="resetProfileImage()">Ripristina</button>
+      </div>
       <div class="logOutButton">
         <button mat-raised-button (click)="onLogOut()">
           <mat-icon>logout</mat-icon>

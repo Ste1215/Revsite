@@ -13,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './valutazioni-streaming.component.css'
 })
 export class ValutazioniStreamingComponent {
-
-  negozi: string[] = ['Youtube', 'Twitch', 'Netflix'];
+  profileImageUrl: string='../../../assets/img/user.png';
+  negozi: string[] = ['Youtube', 'Twitch', 'Netflix','Disney'];
   recensioniPerNegozi: { [key: string]: Recensione[] } = {};
   userNome: string;
         constructor(public authService: AuthService){}

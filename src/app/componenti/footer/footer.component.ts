@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,5 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
- 
+
+  constructor(private router:Router){}
+onBusiness() {
+  this.router.navigate(['/dashboard/categorie/business']);
+}
+onHome(){
+  this.router.navigate(['/']);
+}
+
 }

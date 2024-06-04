@@ -20,8 +20,9 @@ import {AsyncPipe} from '@angular/common';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common'; 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecensioniSService } from '../../servizi/recensioni-s.service';
+import { NegozioService } from '../../servizi/negozio.service';
 
 @Component({
   selector: 'app-recensioni',
@@ -48,19 +49,36 @@ import { RecensioniSService } from '../../servizi/recensioni-s.service';
   styleUrl: './recensioni.component.css'
 })
 export class RecensioniComponent implements OnInit{
+  
   @Output() recensioneInviata = new EventEmitter<string>();
-  recensioni: {testo: string; negozio: string;}[] = [];
-  ngOnInit(): void {}
-  constructor(private recensioniService: RecensioniSService,private authService: AuthService,private router: Router) {}
+
+
+  constructor( private negozioService: NegozioService,
+    public dialog: MatDialog,
+    private recensioniService: RecensioniSService,
+    private authService: AuthService,private router: Router,
+    private route: ActivatedRoute,
+  ) {}
   mostraRecensione: boolean = false;
   mostraBottone: boolean = true;
   nuovaRecensione: string = '';
   negozioCorrente: string = 'Mediaworld';
   mostraMessaggio:boolean=false;
   mostraMessaggioValutazioni:boolean=false;
-
-
-
+  rating: number = 0;
+  stars = [1, 2, 3, 4, 5];
+  recensioni: {testo: string; negozio: string; rating: number;}[] = [];
+  
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['negozio']) {
+        this.negozioCorrente = params['negozio'];
+      }
+    });
+  }
+  rate(star: number) {
+    this.rating = star;
+  }
   selezionaNegozio(negozio: string){
     this.negozioCorrente = negozio;
   }
@@ -70,7 +88,7 @@ export class RecensioniComponent implements OnInit{
     // reset del textArea (dove inserisco la recensione)
     if (this.nuovaRecensione.trim() !== '') {
       const negozio = this.negozioCorrente;
-    const nuovaRecensione ={ testo: this.nuovaRecensione, negozio: this.negozioCorrente};
+    const nuovaRecensione ={ testo: this.nuovaRecensione, negozio: this.negozioCorrente,rating: this.rating};
       this.authService.aggiungiRecensione(nuovaRecensione);
       this.recensioni.push(nuovaRecensione);
       this.nuovaRecensione = '';

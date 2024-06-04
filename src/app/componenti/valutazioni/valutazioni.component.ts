@@ -19,9 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './valutazioni.component.css'
 })
 export class ValutazioniComponent implements OnInit {
+  profileImageUrl: string='../../../assets/img/user.png';
   recensioni: string[] = [];
   userNome: string;
-  negozi: string[] = ['Mediaworld', 'Euronics', 'Unieuro'];
+  negozi: string[] = ['Mediaworld', 'Euronics', 'Unieuro','Apple'];
+
   recensioniPerNegozi: { [key: string]: Recensione[] } = {};
         constructor(public authService: AuthService){}
   ngOnInit(): void {
@@ -31,10 +33,6 @@ export class ValutazioniComponent implements OnInit {
       });
     });
   }
-   getNome(){
-    return this.authService.user.nome;
-  }
- 
   
 
 }

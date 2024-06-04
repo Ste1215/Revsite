@@ -18,30 +18,32 @@ import { SnackBarComponent } from './snackbar.component';
 export class PianiAcquistoComponent {
 
  piani=[
-  {tipo: "Piano Gratuito",
+{tipo: "Piano Gratuito",
   prezzo: "€ 0", 
   acquistato: "in possesso",
   descrizione:"piano gratuito",
-  caratteristiche:`fino a 10 recensioni al giorno`,
-  caratteristiche2:`fino a 10 recensioni al giorno`,
+  caratteristiche:`Accesso limitato ai contenuti:`,
+  caratteristiche2:`Annunci pubblicitari`,
+  caratteristiche3:`Supporto base`,
 },
 
-  {tipo: "Piano Premium",
+{tipo: "Piano Premium",
   prezzo: "€ 20.99",
   acquistato: "acquistabile",
   descrizione:"Piano Premium",
   caratteristiche:`Recensioni illimitate`,
-  caratteristiche2:`fino a 10 recensioni al giorno`,
+  caratteristiche2:`Esperienza senza pubblicità`,
+  caratteristiche3:`Supporto prioritario`,
 },
 
-  {tipo: "Piano Pro",
+{tipo: "Piano Pro",
   prezzo: "€ 39.99",
   acquistato: "acquistabile",
   descrizione:"Piano Pro",
-  caratteristiche: "accesso a tutte le categorie",
-  caratteristiche2:`fino a 10 recensioni al giorno`,
+  caratteristiche: "Accesso illimitato e anticipato",
+  caratteristiche2:`Strumenti di analisi avanzati`,
+  caratteristiche3:`Supporto premium`,
 },
- 
 ]
 constructor(private _snackBar: MatSnackBar) {}
   
