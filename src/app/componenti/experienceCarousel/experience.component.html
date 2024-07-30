@@ -1,39 +1,44 @@
-<div class="Max-cont">
-<div class="experience-container">
-
-  <div class="text-container" [ngStyle]="{
-    'opacity': hidden ? 0 : 1,
-    'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'}">
-      <div class="star" *ngFor="let star of stars" [ngStyle]="{color: 'gold'}">
-        <mat-icon>stars</mat-icon>
-      </div>
-    <h1>{{ slides[CurrentSlide].text }}</h1>
-  </div>
-
-  <div class="carousel-container">
-    <div class="slides">
-      <div class="slide" [ngStyle]="{
-        'background-image': 'url(' + slides[CurrentSlide].url + ')',
-        'opacity': hidden ? 0 : 1,
-        'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'
-      }">
-      </div>
-      @if(indicatorsVisible) {
-        <div id="indicators">
-            @for(slide of slides; track $index;){
-                <div (click)="jumpToSlide($index)"
-                 class="indicator"
-                 [ngClass]="{active: $index == CurrentSlide}"></div>
-            }
+<div class="bg-gray-200 p-8">
+  <div class="max-w-4xl mx-auto bg-gray-200 rounded-2xl p-12 h-96 flex flex-col lg:flex-row">
+    <div class="experience-container flex flex-col lg:flex-row h-full rounded-2xl overflow-hidden bg-gray-300">
+        <div class="text-container flex-1 flex items-center justify-center p-4 text-center bg-gray-300 text-black">
+            <div [ngStyle]="{
+                'opacity': hidden ? 0 : 1,
+                'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'
+            }" class="w-full">
+            <div class="flex justify-center mb-10">
+              <div *ngFor="let star of stars" class="text-yellow-500">
+                  <mat-icon>stars</mat-icon>
+              </div>
+          </div>
+                <h1 class="font-extrabold text-xl lg:text-2xl">{{ slides[CurrentSlide].text }}</h1>
+            </div>
         </div>
-      } 
-  </div>
-</div>
-  <button (click)="next()" class="nextButton">
-    <mat-icon>arrow_forward_ios</mat-icon>
-  </button>
-  <button (click)="prev()" class="prevButton">
-    <mat-icon>arrow_back_ios</mat-icon>
-  </button>
+        <div class="carousel-container flex-1 relative hidden lg:block">
+            <div class="slides w-full h-full">
+                <div [ngStyle]="{
+                    'background-image': 'url(' + slides[CurrentSlide].url + ')',
+                    'opacity': hidden ? 0 : 1,
+                    'transition': 'opacity ' + animationSpeed + 'ms ease-in-out'
+                }" class="slide w-full h-full bg-center bg-no-repeat bg-cover relative transition-opacity duration-100">
+                </div>
+                @if(indicatorsVisible) {
+                  <div id="indicators" class="absolute bottom-2 left-0 right-0 text-center">
+                      @for(slide of slides; track $index;){
+                          <div (click)="jumpToSlide($index)"
+                           class="indicator inline-block w-5 h-5 rounded-full bg-white mx-1 cursor-pointer transition-colors duration-500"
+                           [ngClass]="{active: $index == CurrentSlide}"></div>
+                      }
+                  </div>
+                } 
+            </div>
+        </div>
+    </div>
+    <button (click)="next()" class="nextButton absolute text-2xl text-black bg-transparent border-none transform translate-y-32 cursor-pointer right-5 lg:right-10">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+    <button (click)="prev()" class="prevButton absolute text-2xl text-black bg-transparent border-none transform translate-y-32 cursor-pointer left-5 lg:left-10">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
 </div>
 </div>

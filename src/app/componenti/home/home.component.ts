@@ -47,7 +47,8 @@ import { Experience } from "../experienceCarousel/Experience.component";
 export class HomeComponent implements OnInit {
   private animatedElements: HTMLElement[] = [];
   constructor(private servizi: ServiziService,private animationBuilder: AnimationBuilder, private elementRef: ElementRef,public authService: AuthService, private router: Router) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   slides: any[] =[
     {
       url: 'assets/img/azh.jpg', text:'Il miglior posto per trovare gadget tecnologici di ultima generazione.La qualità dei prodotti è eccellente e il servizio clienti è estremamente disponibile e gentile.'
@@ -59,10 +60,7 @@ export class HomeComponent implements OnInit {
       url: 'assets/img/cons-pacc.jpg',text:'Sono davvero contento del mio acquisto! La consegna è stata rapida e senza problemi.'
     },
   ];
-
-
-
-
+        
 
 
   @HostListener('window:scroll', ['$event'])

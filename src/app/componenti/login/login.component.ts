@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
   loginWithGoogle() {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
-    
     signInWithPopup(auth, provider)
     .then((result) => {
         const user = result.user;
@@ -63,10 +62,7 @@ export class LoginComponent implements OnInit {
                 email: user.email,
                 photoURL: user.photoURL
             }));
-            this.router.navigate(['/']);
-            setTimeout(() => {
                 this.router.navigate(['/dashboard/categorie']);
-            }, 3000);
         }
     })
     .catch((error) => {
