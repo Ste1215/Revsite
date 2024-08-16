@@ -1,5 +1,5 @@
 # Revsite
-
+This Web APP is online, Navigate to `https://revsite1.web.app`!
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Development server
